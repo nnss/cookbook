@@ -15,6 +15,11 @@
   <%= @ingredient.name %>
 </p>
 
+<p>
+  <b>Recipe:</b>
+  <%= @ingredient.recipe %>
+</p>
+
 
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>

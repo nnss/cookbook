@@ -37,4 +37,3 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'therubyracer'
-gem 'acts_as_list'

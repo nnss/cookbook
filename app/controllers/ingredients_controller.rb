@@ -2,7 +2,6 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @recipe = Recipe.find(params[:all])
     @ingredients = Ingredient.all
 
     respond_to do |format|
@@ -14,7 +13,6 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
-    @recipe = Recipe.find(params[:all])
     @ingredient = Ingredient.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +24,6 @@ class IngredientsController < ApplicationController
   # GET /ingredients/new
   # GET /ingredients/new.json
   def new
-    @recipe = Recipe.find(params[:all])
     @ingredient = Ingredient.new
 
     respond_to do |format|
@@ -37,14 +34,12 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/1/edit
   def edit
-    @recipe = Recipe.find(params[:all])
     @ingredient = Ingredient.find(params[:id])
   end
 
   # POST /ingredients
   # POST /ingredients.json
   def create
-    @recipe = Recipe.find(params[:all])
     @ingredient = Ingredient.new(params[:ingredient])
 
     respond_to do |format|
@@ -61,7 +56,6 @@ class IngredientsController < ApplicationController
   # PUT /ingredients/1
   # PUT /ingredients/1.json
   def update
-    @recipe = Recipe.find(params[:all])
     @ingredient = Ingredient.find(params[:id])
 
     respond_to do |format|
@@ -78,7 +72,6 @@ class IngredientsController < ApplicationController
   # DELETE /ingredients/1
   # DELETE /ingredients/1.json
   def destroy
-    @recipe = Recipe.find(params[:all])
     @ingredient = Ingredient.find(params[:id])
     @ingredient.destroy
 

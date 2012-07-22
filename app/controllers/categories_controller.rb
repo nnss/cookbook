@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @recipe = Recipe.find(params[:recipe_id])
     @categories = Category.all
 
     respond_to do |format|
@@ -14,7 +13,6 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @recipe = Recipe.find(params[:recipe_id])
     @category = Category.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +24,6 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   # GET /categories/new.json
   def new
-    @recipe = Recipe.find(params[:recipe_id])
     @category = Category.new
 
     respond_to do |format|
@@ -37,16 +34,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    @recipe = Recipe.find(params[:recipe_id])
     @category = Category.find(params[:id])
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    #@category = Category.new(params[:category])
-    @category = @recipe.categories.build(params[:category])
+    @category = Category.new(params[:category])
 
     respond_to do |format|
       if @category.save
@@ -62,7 +56,6 @@ class CategoriesController < ApplicationController
   # PUT /categories/1
   # PUT /categories/1.json
   def update
-    @recipe = Recipe.find(params[:recipe_id])
     @category = Category.find(params[:id])
 
     respond_to do |format|
@@ -79,7 +72,6 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @recipe = Recipe.find(params[:recipe_id])
     @category = Category.find(params[:id])
     @category.destroy
 

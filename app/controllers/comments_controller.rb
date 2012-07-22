@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @recipe = Recipe.find(params[:recipe_id])
     @comments = Comment.all
 
     respond_to do |format|
@@ -14,7 +13,6 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +24,6 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.new
 
     respond_to do |format|
@@ -37,14 +34,12 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find(params[:id])
   end
 
   # POST /comments
   # POST /comments.json
   def create
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.new(params[:comment])
 
     respond_to do |format|
@@ -61,7 +56,6 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
@@ -78,7 +72,6 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
 
