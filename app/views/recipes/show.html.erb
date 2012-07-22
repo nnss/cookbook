@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @recipe.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @recipe.date %>
+</p>
+
+<p>
+  <b>Category/ies:</b>
+  <%= @recipe.categories.each{|x| x . "<br />"} %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <b>Ingredient/s:</b>
+</p>
+<table style="border: 1px solid black">
+  <tr>
+    <th style="border 1px solid black">Unit</th>
+    <th style="border 1px solid black">Measure</th>
+    <th style="border 1px solid black">Name</th>
+  </tr>
+  <%= @recipe.ingredients.each{|x|
+  <tr>
+    <td>x.unit</td>
+    <td>x.measure</td>
+    <td>x.name</td>
+  </tr>
+  } %>
+</table>
+
+<p>
+  <b>Instructions:</b>
+  <%= @recipe.instructions %>
+</p>
+
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

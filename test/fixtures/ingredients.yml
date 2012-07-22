@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  unit: 1.5
+  measure: MyString
+  name: MyString
+
+two:
+  unit: 1.5
+  measure: MyString
+  name: MyString

@@ -1,0 +1,47 @@
+<% @recipe.categories.build if @recipe.categories.empty? %>
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <h2>Category/ies</h2>
+  <% f.fields_for :categories do |fc| %>
+    <div class="field">
+      <%= fc.label :name %><br />
+      <%= fc.text_field :name %>
+    </div>
+    <% unless fc.object.nil? || fc.new_record? %>
+    <p>
+      <% fc.label :destroy, "Remove:" %>
+      <% fc.check_box :_destroy %>
+    </p>
+    <% end %>
+  <% end %>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :instructions %><br />
+    <%= f.text_area :instructions %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
