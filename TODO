@@ -1,0 +1,17 @@
+#
+User solved using:
+http://railscasts.com/episodes/250-authentication-from-scratch
+TODO:
+ -> pending admin review on user creation (perhaps using workflow)
+(fixed recipe submit)
+
+Privates pages solved (avoid editing recipe without an user)
+http://pastie.org/1185477
+
+#
+habtm categories
+https://github.com/plataformatec/simple_form
+http://stackoverflow.com/questions/5384203/rails-3-scaffolding-of-relational-model
+
+#
+has_many

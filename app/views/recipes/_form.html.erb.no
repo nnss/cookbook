@@ -1,0 +1,59 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+<!-- user -> contributor -->
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= current_user.name %>
+  </div>
+<!-- end of contributor -->
+
+  <div class="field">
+    <%= f.label :yield %><br />
+    <%= f.text_field :yield %>
+  </div>
+
+<!-- this is the cateogry part -->
+  <div id="field">
+    I got <%= @recipe.categories.class %>.<br />
+    <% Category.all.each do |category| %>
+      <%= check_box_tag(
+        "recipe[category_list][#{category.id}]", 
+        "1", 
+        @recipe.categories.detect{|d| d == category}) %>
+	<%= "#{category.name}"%><br />
+    <% end %>
+  </div>
+<!-- end of cateogry -->
+
+<!-- begin ingredients -->
+  <div id="field">
+    < %f.fields_for :ingredients do |nested| % >
+      < %= render :partial => 'ingredients/ingredient', :locals => { :f => nested } % >
+    < % end % >
+  </div>
+  < %= link_to_add_association 'Add Ingredient',f,:ingredients % >
+<!-- end ingredients -->
+  <div class="field">
+    <%= f.label :instructions %><br />
+    <%= f.text_area :instructions %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<%#
+ f - form builder for a Ingredient
+%>
+<p class="field">
+  <%= f.label :amount %><br />
+  <%= f.text_field :amount %>
+
+
+  <%= f.label :unit %><br />
+  <%= f.text_field :unit %>
+
+
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+
+
+  <%= f.label :recipe %><br />
+  <%= f.text_field :recipe %>
+
+  <%= link_to_remove_association "remove ingredient", f %>
+</p>
