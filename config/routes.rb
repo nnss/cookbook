@@ -10,15 +10,13 @@ Cookbook::Application.routes.draw do
   resources :comments
 
 
-  resources :recipes do
-    resources :categories
-  end
+  get 'tags/:tag', to: 'recipes#index', as: :tag
 
+  #get 'tags', to 
+
+  resources :recipes
 
   resources :users
-
-
-  resources :categories
 
 
   resources :ingredients

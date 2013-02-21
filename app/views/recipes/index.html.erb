@@ -4,6 +4,7 @@
   <tr>
     <th>Title</th>
     <th>User</th>
+    <th>Categories</th>
     <th>Yield</th>
     <th>Instructions</th>
     <th></th>
@@ -11,10 +12,12 @@
     <th></th>
   </tr>
 
+
 <% @recipes.each do |recipe| %>
   <tr>
     <td><%= recipe.title %></td>
-    <td><%= recipe.user %></td>
+    <td><%= recipe.user.name %></td>
+    <td><%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
     <td><%= recipe.yield %></td>
     <td><%= recipe.instructions %></td>
     <td><%= link_to 'Show', recipe %></td>

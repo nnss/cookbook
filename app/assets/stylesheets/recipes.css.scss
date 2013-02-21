@@ -1,3 +1,109 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  height: 100%;
+}
+
+
+body{
+  height: 100%;
+}
+
+.pageall {
+  width: 1000px;
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  /* border-bottom: 2px solid black; */
+}
+
+.header_nav{
+  border-bottom: 3px solid #93BCE6;
+  padding: 5px;
+  zindex: 1;
+  // background-color: grey;
+}
+
+.left_nav{
+  width: 20%;
+  height: 100%;
+  border-right: 3px solid #93BCE6;
+  padding: 5px;
+  spacing: 5px;
+  //overflow: auto;
+  left: 0px;
+  position: static;
+  float: left;
+  clear: both;
+}
+
+.content_nav {
+  width: auto;
+  height: 100%;
+  padding-left: 200px;
+  padding: 15px;
+  background-color: #FAFAFA;
+  //border: 2px solid black;
+}
+
+.footer_nav {
+  //width: 100%;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  //spacing: 15px;
+  clear: both;
+  //position: absolute;;
+  border-top: 3px solid #93BCE6;
+}
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+label {
+  width: 200px;
+  line-height: 1.6em;
+  display: inline-block;
+  float: left;
+  clear: left;
+}
+
+label:after {
+  content: ":";
+}
+
+field:labe {
+  width: 300px;
+  line-height: 1.6em;
+  display: inline-block;
+}
+
+input {
+  width: 200px;
+  line-height: 1.6em;
+  display: block;
+  float: right;
+  clear: right;
+}
+
+textarea {
+  width: 200px;
+  line-hwight: 1.6em;
+  display: inline-block;
+  float: right;
+  clear: right;
+}
+
+
+//div."remove_fields existing" {
+//  width:

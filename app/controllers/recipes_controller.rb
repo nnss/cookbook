@@ -3,7 +3,11 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    if params[:tag]
+      @recipes = Recipe.tagged_with(params[:tag])
+    else
+      @recipes = Recipe.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +30,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new.json
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
     if current_user.nil? || current_user.name.nil?
       redirect_back_or  log_in_path
       return
@@ -40,7 +45,6 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
-    #@categories = @recipe.categories
   end
 
   
@@ -49,8 +53,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(params[:recipe])
     @recipe.user_id = current_user.id || 1
-    #@categories = @recipe.categories
-    ##__##@recipe.categories = 
+    @recipe.ingredient.build
 
     respond_to do |format|
       if @recipe.save
@@ -66,12 +69,8 @@ class RecipesController < ApplicationController
   # PUT /recipes/1
   # PUT /recipes/1.json
   def update
-    params[:categories] ||= {}
     @recipe = Recipe.find(params[:id])
-    ##-no user @category = @post.categories.build(params[:category]) unless params[:category][:name].blank?
-    #@category = @recipe.categories.build(params[:category_list]) unless params[:category_list][:name].blank?
-    #@categories = @recipes.categories
-    @categories = Category.find(category_list.keys) rescue []
+    #@recipe.ingredient.build
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])

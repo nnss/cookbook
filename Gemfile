@@ -39,3 +39,6 @@ gem 'jquery-rails'
 gem 'therubyracer'
 #gem "simple_captcha", "~> 0.1.3"
 gem 'simple_form'
+gem 'awesome_nested_fields'
+gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'cocoon'

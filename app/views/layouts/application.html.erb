@@ -7,22 +7,60 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- user part -->
-<div id="user_nav">
-  <% if current_user %>
-    Logged in as <%= current_user.name %>(<%= current_user.id %>).
-    <%= link_to "Log out", log_out_path %>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "log in", log_in_path %>
-  <% end %>
-</div>
 
+<div class="pageall">
+  <div class="header_nav">
+    <h1>My Cook Site</h1>
+  </div>
+
+  <div class="left_nav">
+
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/recipes">Recipes</a></li>
+    </ul>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <%= render "recipes/tags" %>
+    <br />
+    <br />
+    <br />
+    <!-- user part -->
+    <div class="user_nav">
+      <% if current_user %>
+        Logged in as <%= current_user.name %>(<%= current_user.id %>).
+        <%= link_to "Log out", log_out_path %>
+      <% else %>
+        <%= link_to "Sign up", sign_up_path %> or
+        <%= link_to "log in", log_in_path %>
+      <% end %>
+    </div>
+  </div>
+
+<div class="content_nav">
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 <!-- end of user -->
 <%= yield %>
 
+</div>
+
+<div class="right_vbar">
+<!-- nothing yet -->
+</div>
+
+</div>
+
+<div class="footer_nav">
+<small>by Matias "nnss" Palomec</small><br />
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">The recipe site</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Matias Palomec</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+</div>
+
 </body>
 </html>
+
