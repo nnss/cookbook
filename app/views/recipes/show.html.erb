@@ -7,13 +7,47 @@
 
 <p>
   <b>User:</b>
-  <%= @recipe.user %>
+  <%= @recipe.user.name %>
 </p>
 
 <p>
   <b>Yield:</b>
   <%= @recipe.yield %>
 </p>
+
+<p>
+  <b>Categories:</>
+  <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</p>
+
+  <div class="pubinside">
+    <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-4746490472901860";
+      /* cook_inside_recipe */
+      google_ad_slot = "2008835008";
+      google_ad_width = 336;
+      google_ad_height = 280;
+      //-->
+    </script>
+    <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+
+<table>
+<tr>
+  <th>amount</th>
+  <th>unit</th>
+  <th>name</th>
+</tr>
+<% @recipe.ingredients.each do |mying| %> 
+<tr>
+  <td><%= mying.amount %></td>
+  <td><%= mying.unit %></td>
+  <td><%= mying.name %></td>
+</tr>
+<% end %>
+</table>
 
 <p>
   <b>Instructions:</b>

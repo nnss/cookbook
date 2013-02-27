@@ -14,10 +14,11 @@
   <%= f.input :title %>
   <%= f.input :yield %>
 
-  <div class="field">
+  <div class="categories">
     <%= f.label :tag_list, "Categories (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list  %>
   </div>
+
 
   <div class="ingredients">
     <%= f.simple_fields_for :ingredients do |ingredient| %>

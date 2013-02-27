@@ -7,7 +7,7 @@ html {
 }
 
 
-body{
+body {
   height: 100%;
 }
 
@@ -48,6 +48,7 @@ body{
   padding: 15px;
   background-color: #FAFAFA;
   //border: 2px solid black;
+  display: inline-block;
 }
 
 .footer_nav {
@@ -74,15 +75,16 @@ label {
   width: 200px;
   line-height: 1.6em;
   display: inline-block;
+  left-margin: 5;
+  //font-size: 20px;
   float: left;
-  clear: left;
 }
 
 label:after {
   content: ":";
 }
 
-field:labe {
+field2.label {
   width: 300px;
   line-height: 1.6em;
   display: inline-block;
@@ -91,17 +93,32 @@ field:labe {
 input {
   width: 200px;
   line-height: 1.6em;
-  display: block;
-  float: right;
-  clear: right;
+  display: inline-block;
+  right-margin: 0;
 }
 
 textarea {
   width: 200px;
-  line-hwight: 1.6em;
+  line-wight: 1.6em;
   display: inline-block;
-  float: right;
-  clear: right;
+  right-margin: 0;
+  
+}
+
+myinput {
+  width: 200px;
+  line-height: 1.6em;
+  display: inline-block;
+  right-margin: 0;
+}
+
+
+.lic {
+  width: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 
