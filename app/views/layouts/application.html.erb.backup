@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Cookbook</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="top" class="clear">
+    <h1>My Cook Site</h1>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/recipes">Recipes</a></li>
+    </ul>
+  </div>
+
+  <div id="body" class="clear">
+    <div class="sidebar" class="column-left">
+      <ul>
+        <li>
+          <h4>Tags</h4> 
+          <%= render "recipes/tags" %>
+       </li>
+       <li><h4>Publicity</h4>
+      <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-4746490472901860";
+        /* cook_vertical_simple */
+        google_ad_slot = "8194969404";
+        google_ad_width = 120;
+        google_ad_height = 240;
+        //-->
+      </script>
+      <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+      </li>
+      <li>
+      <!-- user part -->
+      <li><h4>User</h4>
+        <% if current_user %>
+          Logged in as <%= current_user.name %>(<%= current_user.id %>).
+          <%= link_to "Log out", log_out_path %>
+        <% else %>
+          <%= link_to "Sign up", sign_up_path %> or
+          <%= link_to "log in", log_in_path %>
+        <% end %>
+       </li>
+       </ul>
+    </div>
+
+  
+  <div id="content" class="column-right">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+  <!-- end of user -->
+  <%= yield %>
+  
+  </div>
+</div>
+  
+</div>
+
+<div id="footger" class="clear">
+<div class="footer-box">
+<small>by Matias "nnss" Palomec</small><br />
+<div class="footer-box">
+<h4>License</h4>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">The recipe site</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Matias Palomec</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+</div>
+</div>
+
+</body>
+</html>
+
