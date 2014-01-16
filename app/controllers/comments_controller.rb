@@ -1,83 +1,18 @@
 class CommentsController < ApplicationController
-  # GET /comments
-  # GET /comments.json
-  def index
-    @comments = Comment.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @comments }
-    end
-  end
-
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @comment }
-    end
-  end
-
-  # GET /comments/new
-  # GET /comments/new.json
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @comment }
-    end
-  end
-
-  # GET /comments/1/edit
-  def edit
-    @comment = Comment.find(params[:id])
-  end
-
-  # POST /comments
-  # POST /comments.json
+  skip_before_filter :require_user, only: [:show, :index]
   def create
-    @comment = Comment.new(params[:comment])
-
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /comments/1
-  # PUT /comments/1.json
-  def update
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /comments/1
-  # DELETE /comments/1.json
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-
-    respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
+    @comment_hash = params[:comment]
+    @obj = @comment_hash[:commentable_type].constantize.find(@comment_hash[:commentable_id])
+    # Not implemented: check to see whether the user has permission to create a comment on this object
+    #Rails.logger.debug("got obj as #{@obj}")
+    #Rails.logger.debug("got current user as: #{current_user.public_methods.sort}")
+    #Rails.logger.debug("got current user as: #{current_user.id}")
+    #Rails.logger.debug("got body as #{@comment_hash[:body]}")
+    @comment = Comment.build_from(@obj, current_user.id, @comment_hash[:body])
+    if @comment.save
+      render :partial => "comments/comment", :locals => { :comment => @comment }, :layout => false, :status => :created
+    else
+      render :js => "alert('error saving comment');"
     end
   end
 end

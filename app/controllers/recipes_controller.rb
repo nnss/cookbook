@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  skip_before_filter :require_user, only: [:show, :index]
+
 
   # GET /recipes
   # GET /recipes.json
@@ -19,6 +21,10 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+    @comments = @recipe.comment_threads.order('created_at desc')
+    unless current_user.nil?
+      @comment = Comment.build_from(@recipe, current_user.id, "")
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -94,4 +100,5 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

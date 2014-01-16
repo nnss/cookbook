@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  skip_before_filter :require_user, only: [:show, :index]
   # GET /ingredients
   # GET /ingredients.json
   def index

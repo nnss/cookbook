@@ -2,14 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html {
-  height: 100%;
-}
-
-
-body {
-  height: 100%;
-}
 
 .pageall {
   width: 1000px;
@@ -88,37 +80,6 @@ field2.label {
   width: 300px;
   line-height: 1.6em;
   display: inline-block;
-}
-
-input {
-  width: 200px;
-  line-height: 1.6em;
-  display: inline-block;
-  right-margin: 0;
-}
-
-textarea {
-  width: 200px;
-  line-wight: 1.6em;
-  display: inline-block;
-  right-margin: 0;
-  
-}
-
-myinput {
-  width: 200px;
-  line-height: 1.6em;
-  display: inline-block;
-  right-margin: 0;
-}
-
-
-.lic {
-  width: 200px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 

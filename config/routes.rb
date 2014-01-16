@@ -6,20 +6,19 @@ Cookbook::Application.routes.draw do
   root :to => "recipes#index"
 
   resources :sessions
-
-  resources :comments
-
+  resources :users
 
   get 'tags/:tag', to: 'recipes#index', as: :tag
 
   #get 'tags', to 
 
-  resources :recipes
-
-  resources :users
-
-
+  resources :recipes do
+    resources :comments, :only => [:create, :destroy]
+  end
   resources :ingredients
+
+
+
 
 
   # The priority is based upon order of creation:

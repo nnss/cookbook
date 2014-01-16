@@ -54,6 +54,10 @@
   <%= @recipe.instructions %>
 </p>
 
+<!-- comments -->
+<%= render :partial => 'comments/comment', :locals => {:commentable => @recipe, :comments => @comments} %>
+<%= render :partial => 'comments/form', :locals => {:commentable => @recipe} %>
+
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
