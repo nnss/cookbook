@@ -8,9 +8,10 @@ Cookbook::Application.routes.draw do
   resources :sessions
   resources :users
 
-  get 'tags/:tag', to: 'recipes#index', as: :tag
+  get 'tags/:tag', to: 'recipes#tagindex', as: :tag
 
   #get 'tags', to 
+  get 'sitemap', :to => 'sitemap#show'
 
   resources :recipes do
     resources :comments, :only => [:create, :destroy]
