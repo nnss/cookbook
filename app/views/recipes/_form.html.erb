@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <%= f.input :title %>
-  <%= f.input :yield %>
+  <%= f.input :title %><br />
+  <%= f.input :yield %><br />
 
   <div class="categories">
     <%= f.label :tag_list, "Categories (separated by commas)" %><br />
-    <%= f.text_field :tag_list  %>
+    <%= f.text_field :tag_list  %><br />
   </div>
 
 
+  <h3>Ingredinets part</h3>
   <div class="ingredients">
     <%= f.simple_fields_for :ingredients do |ingredient| %>
       <%= render "ingredient_fields", :f => ingredient %>
@@ -28,7 +29,7 @@
   </div>
 
 
-  <%= f.input :instructions %>
+  <%= f.input :instructions %><br />
 
   <%= f.button :submit %>
 

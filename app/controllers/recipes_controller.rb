@@ -1,10 +1,23 @@
 class RecipesController < ApplicationController
-  skip_before_filter :require_user, only: [:show, :index]
+  skip_before_filter :require_user, only: [:show, :index, :tagindex]
 
 
   # GET /recipes
   # GET /recipes.json
   def index
+    if params[:tag]
+      @recipes = Recipe.tagged_with(params[:tag])
+    else
+      @recipes = Recipe.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @recipes }
+    end
+  end
+
+  def tagindex
     if params[:tag]
       @recipes = Recipe.tagged_with(params[:tag])
     else

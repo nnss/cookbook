@@ -2,7 +2,7 @@ $(document).ready(function() {
   $("#owner a.add_fields").
     data("association-insertion-position", 'before').
     data("association-insertion-node", 'this');
-	 
+
   $('#owner').bind('insertion-callback',
      function() {
        $("#owner_from_list").hide();
