@@ -26,13 +26,12 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.url
   end
 
-  def redirect_back_or_default(default)
-    going_to = default
+  def redirect_back_or_default(default,msg=nil)
     unless session[:return_to].nil?
-      going_to = session[:return_to]
+      redirect_to session[:return_to], msg
     end
     session[:return_to] = nil
-    going_to
+    redirect_to default, msg
   end
 
   def back_or_default(default)

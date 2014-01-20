@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     Rails.logger.debug("root url/path: #{root_url} / #{root_path}")
     session[:user_id] = nil
-    redirect_to redirect_back_or_default(root_path), :notice => "Logged out!"
+    redirect_back_or_default root_path, :notice => "Logged out!"
   end
 end

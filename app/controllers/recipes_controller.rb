@@ -33,15 +33,25 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-    @recipe = Recipe.find(params[:id])
-    @comments = @recipe.comment_threads.order('created_at desc')
-    unless current_user.nil?
-      @comment = Comment.build_from(@recipe, current_user.id, "")
+    Rails.logger.debug("recipe looking for random/rand #{Recipe.public_methods.sort}")
+    begin
+      @recipe = Recipe.find(params[:id])
+      @comments = @recipe.comment_threads.order('created_at desc')
+      unless current_user.nil?
+        @comment = Comment.build_from(@recipe, current_user.id, "")
+      end
+
+    rescue ActiveRecord::RecordNotFound => e
+      @recipe = nil
     end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @recipe }
+    if @recipe.nil?
+      redirect_back_or_default root_path,:notice => "Recipe not fould"
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @recipe }
+      end
     end
   end
 
@@ -72,7 +82,8 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(params[:recipe])
     @recipe.user_id = current_user.id || 1
-    @recipe.ingredient.build
+    Rails.logger.debug("### ingredient: #{Recipe.public_methods.sort}")
+    #@recipe.ingredient.build
 
     respond_to do |format|
       if @recipe.save
