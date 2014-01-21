@@ -1,0 +1,8 @@
+<!-- random recipe -->
+<div id="random_recipe">
+  <%  myrec = Recipe.first(:offset => (Recipe.count.to_i - 1 )) %>
+  <h4><%= myrec.title %></h4>
+  <p><%= myrec.instructions.to_s.split(" ")[0..15].join(" ")+("...") %>
+     <a href="<%= "/" + myrec.to_partial_path.to_s + "/" + myrec.id.to_s %>">Read more</a></p>
+</div>
+

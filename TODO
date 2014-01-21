@@ -3,31 +3,28 @@ User solved using:
 http://railscasts.com/episodes/250-authentication-from-scratch
 
 
-# to be replaced<<TBR
-habtm categories
-https://github.com/plataformatec/simple_form
-http://stackoverflow.com/questions/5384203/rails-3-scaffolding-of-relational-model
-||||||||||||||||||||||||||||||||||
-|| Replace the habtm with tags as shown in:
-http://railscasts.com/episodes/382-tagging
 
-TBR
-
-Privates pages solved (avoid editing recipe without an user)
-http://pastie.org/1185477
 
 TODO:
  -> pending admin review on user creation (perhaps using workflow)
-(fixed recipe submit)
- -> messages inter users (probably using 140 chars only)
+ -> Groups
+    -> probably the best is to modify the user model adding grup_id (user has_one group)
  -> search by ingredient (or multiple ingredients)
     -> it would be great to have a flag and search only for recipes with
        the given ingredients (and avoid other recipes with extra ingredients)
- -> search by tag/category
+ -> global search
+ -> hide modifications links (edit/create/...) for anonymous users
+ Recipe model modifcations:
+   -> add dish type (dissert, main dish, side dish, etc)
 
-#
-has_many
+ General Layout:
+  -> add last (1 or more) recipe(s) like the random recipe
+  -> modify general index to have something like:
+  |-----------------------------------|
+  | <Recipe Name>             <yield> |
+  |                                   |
+  | <instrtuctions>...Read more       |
+  |                                   |
+  |-----------------------------------|
 
-
-probably useful:
-http://amillionbetterthings.com/2010/06/24/rails-nested-forms-with-ajax-add-and-remove/
+    -> This should be repeted in N columns by M rows (dinamic)
