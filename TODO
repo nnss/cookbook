@@ -20,6 +20,7 @@ TODO:
  -> hide modifications links (edit/create/...) for anonymous users
  Recipe model modifcations:
    -> add dish type (dissert, main dish, side dish, etc)
+   this should be an enumerat (user could select only one option)
 
  General Layout:
   -> add last (1 or more) recipe(s) like the random recipe
@@ -32,3 +33,8 @@ TODO:
   |-----------------------------------|
 
     -> This should be repeted in N columns by M rows (dinamic)
+
+
+fixed:
+  tag window: now appears all the tags
+  user link: now the user goes to /users/name and in that page appears name and recipes 
