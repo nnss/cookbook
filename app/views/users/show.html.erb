@@ -6,14 +6,37 @@
 </p>
 
 <p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
-
-<p>
   <b>Mail:</b>
   <%= @user.mail %>
 </p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>User</th>
+    <th>Categories</th>
+    <th>Yield</th>
+    <th>Instructions</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @userRecipes.each do |recipe| %>
+  <tr>
+    <td><%= recipe.title %></td>
+    <td><%= recipe.user.name %></td>
+    <td><%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+    <td><%= recipe.yield %></td>
+    <td><%= recipe.instructions %></td>
+    <td><%= link_to 'Show', recipe %></td>
+    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!-- < % = if recipe.id  -->
+  </tr>
+<% end %>
+</table>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

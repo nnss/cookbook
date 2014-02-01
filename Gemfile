@@ -37,10 +37,12 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'therubyracer'
-#gem "simple_captcha", "~> 0.1.3"
 gem 'simple_form'
 gem 'awesome_nested_fields'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'cocoon'
 gem 'acts_as_commentable_with_threading'
 gem 'acts_as_votable'
+gem 'will_paginate', '~> 3.0'
+gem "recaptcha", :require => "recaptcha/rails"
+

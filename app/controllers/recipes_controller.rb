@@ -6,9 +6,9 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     if params[:tag]
-      @recipes = Recipe.tagged_with(params[:tag])
+      @recipes = Recipe.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC')
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.page(params[:page]).order('created_at DESC')
     end
 
     respond_to do |format|
@@ -19,9 +19,9 @@ class RecipesController < ApplicationController
 
   def tagindex
     if params[:tag]
-      @recipes = Recipe.tagged_with(params[:tag])
+      @recipes = Recipe.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC')
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.page(params[:page]).order('created_at DESC')
     end
 
     respond_to do |format|

@@ -12,6 +12,9 @@
     </div>
   <% end %>
   <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  <p>
     <%= f.label :mail %><br />
     <%= f.text_field :mail %>
   </p>
@@ -23,5 +26,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
+  <p>
+    <%= recaptcha_tags %>
   <p class="button"><%= f.submit %></p>
 <% end %>

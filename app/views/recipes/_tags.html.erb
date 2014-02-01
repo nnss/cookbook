@@ -1,5 +1,5 @@
 <!-- tags -->
-<div id="tag_cloud">
+<div id="tag_cloud_w">
   <% tag_cloud Recipe.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>

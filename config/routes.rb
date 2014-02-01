@@ -9,6 +9,7 @@ Cookbook::Application.routes.draw do
   resources :users
 
   get 'tags/:tag', to: 'recipes#tagindex', as: :tag
+  get 'users/:name', to: 'users#index', as: :name
 
   #get 'tags', to 
   get 'sitemap', :to => 'sitemap#show'

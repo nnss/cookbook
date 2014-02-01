@@ -2,6 +2,10 @@
 User solved using:
 http://railscasts.com/episodes/250-authentication-from-scratch
 
+Feature list:
+-> added details in user page (and also his/her recipes)
+-> will paginate impelemted
+-> recaptcha implemented
 
 
 

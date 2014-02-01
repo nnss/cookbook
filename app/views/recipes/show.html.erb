@@ -7,7 +7,7 @@
 
 <p>
   <b>User:</b>
-  <%= @recipe.user.name %>
+  <%= link_to @recipe.user.name, user_path(@recipe.user.name) %>
 </p>
 
 <p>

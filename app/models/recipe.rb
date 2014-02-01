@@ -1,8 +1,8 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :instructions, :title, :yield, :tag_list, :ingredient_ids, :ingredients_attributes
+  attr_accessible :instructions, :title, :yield, :tag_list, :ingredient_ids, :ingredients_attributes, :user_id
   acts_as_taggable
-  has_and_belongs_to_many :categories
+  #has_and_belongs_to_many :categories
 
   acts_as_commentable
   #@recipe = Article.find(params[:id])
