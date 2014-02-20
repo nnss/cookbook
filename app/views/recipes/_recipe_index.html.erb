@@ -1,39 +1,29 @@
 <% if @recipes.first.nil? %>
 <h1>Nothig to show</h1>
 <% else %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>User</th>
-    <th>Categories</th>
-    <th>Yield</th>
-    <th>Instructions</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+
+<div class="toLeft">
+<% @recipes.each do |rep| %>
+  <div class="recIndex">
+    <div class="recTitle"><% if rep.title.length >  40 %><%= link_to truncate(rep.instructions, length: 42,separator: " "), rep  %>
+              <% else %>
+                <%= link_to rep.title, rep  %>
+              <% end %></div>
+    <div class="userName">by <%= rep.user.name %></div>
+    <div class="recTags">Categories: <%= raw rep.tag_list.first(4).map { |t| link_to t, tag_path(t) }.join(', ') %></div>
+    <div class="recInstructions"><% if rep.instructions.length > 140 %>
+             <%= truncate(rep.instructions, length: 140, separator: "/\s+|\n*|\s*\n*/")  %>
+           <% else %>
+             <%= rep.instructions %>
+           <% end %></div>
+    <div class="recLinks"><%= link_to 'Show', rep %><% if User.can_modify?(current_user) %> || <%= link_to 'Edit', edit_recipe_path(rep) %> || <%= link_to 'Destroy', rep, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></div>
+  </div>
+<% end %>
+</div>
+<div style="clear: both"></div>
+<% end %>
 
 
-<% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.title %></td>
-    <td><%= recipe.user.name %></td>
-    <td><%= raw recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-    <td><%= recipe.yield %></td>
-    <td><% if recipe.instructions.length > 140 %>
-           <%= truncate(recipe.instructions, length: 140, separator: "/\s+|\n*|\s*\n*/")  %>
-         <% else %>
-           <%= recipe.instructions %>
-         <% end %>
-     </td>
-    <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <!-- < % = if recipe.id  -->
-  </tr>
-<% end %>
-</table>
-<% end %>
 
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-4746490472901860";

@@ -25,4 +25,11 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+  def self.can_modify?(user)
+    if user
+      return true if Group.getGroup(user).match(/editor|admin|edit/i)
+    end
+    return false
+  end
+
 end

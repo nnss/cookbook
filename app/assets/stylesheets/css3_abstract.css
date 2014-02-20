@@ -542,3 +542,35 @@ ul#nav li a:hover,ul#nav li a:focus {
   color: #FFF;
   text-decoration: underline;
 }
+
+.toLeft {
+  // float: left;
+  // clear: left;
+  width: 100%;
+}
+.recIndex {
+  float: left;
+  width: 340px;
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: 0px 10px 10px 0px;
+  padding: 5px;
+  border: 1px solid black;
+}
+.recIndex .recTitle {
+  font-size: 150%;
+  text-align: center;
+}
+.recIndex .userName {
+  font-size: 80%;
+  text-align: right;
+  float: right;
+}
+.recIndex .recTags { }
+.recIndex .recInstructions {
+  text-align: justify;
+}
+.recIndex .recLinks { text-align: center; }
+
+
