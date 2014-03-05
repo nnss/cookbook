@@ -1,0 +1,14 @@
+<!-- last recipe -->
+<div id="random_recipe">
+  <ul>
+  <%  myrecs = Recipe.last(3) %>
+  <% if myrecs.nil? %>
+  <li>No recipe to show</li>
+  <% else %>
+  <%  myrecs.each do |rec| %>
+  <li><%= link_to rec.title,rec %></li>
+  <% end %>
+  <% end %>
+  </ul>
+</div>
+

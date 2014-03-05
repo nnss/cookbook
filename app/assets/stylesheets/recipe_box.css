@@ -1,0 +1,45 @@
+.toLeft {
+  // float: left;
+  // clear: left;
+  width: 100%;
+}
+.recIndex {
+  float: left;
+  width: 340px;
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: 0px 10px 10px 0px;
+  // padding: 5px;
+  // border: 1px solid black;
+  // ////////
+  background: #ddd; /* Show a solid color for older browsers */
+  background: -moz-linear-gradient(#fff, #E6E4D4);
+  background: -o-linear-gradient(#fff, #E6E4D4);
+  background: -webkit-linear-gradient(#fff, #E6E4D4);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+  border: 1px solid #eee;
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border: 7px 7px 7px 7px;
+  padding: 0 15px 5px 13px;
+
+}
+.recIndex .recTitle {
+  font-size: 150%;
+  text-align: center;
+}
+.recIndex .userName {
+  font-size: 80%;
+  text-align: right;
+  float: right;
+  float: right;
+}
+.recIndex .recTags { }
+.recIndex .recInstructions {
+  text-align: justify;
+}
+.recIndex .recLinks { text-align: center; }
+

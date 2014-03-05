@@ -13,28 +13,17 @@ TODO:
  -> pending admin review on user creation (perhaps using workflow)
  -> Groups
     -> probably the best is to modify the user model adding grup_id (user has_one group)
- -> search by ingredient (or multiple ingredients)
+ -> advanced search by ingredient (or multiple ingredients)
     -> it would be great to have a flag and search only for recipes with
        the given ingredients (and avoid other recipes with extra ingredients)
  -> global search
  -> hide modifications links (edit/create/...) for anonymous users
  Recipe model modifcations:
-   -> add dish type (dissert, main dish, side dish, etc)
-   this should be an enumerat (user could select only one option)
+ -> should be added a pending review or somethig to avoid being seen in
+    the general index (if groups review is implemented)
 
  General Layout:
   -> add last (1 or more) recipe(s) like the random recipe
-  -> modify general index to have something like:
-  |-----------------------------------|
-  | <Recipe Name>             <yield> |
-  |                                   |
-  | <instrtuctions>...Read more       |
-  |                                   |
-  |-----------------------------------|
-
     -> This should be repeted in N columns by M rows (dinamic)
 
 
-fixed:
-  tag window: now appears all the tags
-  user link: now the user goes to /users/name and in that page appears name and recipes 

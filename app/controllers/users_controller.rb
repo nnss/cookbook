@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_user, only: [:show, :create, :new]
+  #skip_before_filter :require_user, only: [:show, :create, :new]
+  skip_before_filter :require_user, only: [:show, :create]
   # GET /users
   # GET /users.json
   def index
