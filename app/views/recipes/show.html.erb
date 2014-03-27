@@ -42,9 +42,14 @@
 </tr>
 <% @recipe.ingredients.each do |mying| %> 
 <tr>
-  <td><%= mying.amount %></td>
-  <td><%= mying.unit %></td>
-  <td><%= mying.name %></td>
+  <td class="ingamount"><%= mying.amount %></td>
+  <td class="ingunit"><% if !Term.find_by_term(mying.unit.to_s.downcase).nil? %>
+      <span class="infounit" title="<%= Term.find_by_term(mying.unit.to_s.downcase).definition %>"><%= mying.unit %></span>
+      <% else %>
+      <%= mying.unit.to_s.downcase %>
+      <% end %>
+     </td>
+  <td class="ingname"><%= mying.name %></td>
 </tr>
 <% end %>
 </table>
