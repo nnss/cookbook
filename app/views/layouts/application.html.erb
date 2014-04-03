@@ -35,10 +35,11 @@
         </div>
       </nav>
       <section id="main">
-        <% flash.each do |name, msg| %><%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <% end %>
         <div id="content">
-        <%= yield %>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <% end %>
+          <%= yield %>
         </div>
         <aside>
             <section>
@@ -110,14 +111,5 @@
         </section>
       </footer>
     </div>
-    <!-- jQuery with plugins -->
-    <script type="text/javascript">
-      $(document).ready(function(){
-        <!-- initialise sooperfish menu -->
-        $('ul.sf-menu').sooperfish();
-        <!-- goto top javascript -->
-        $('.top').click(function() {$('html, body').animate({scrollTop:0}, 'fast'); return false;});
-      });
-    </script>
   </body>
 </html>

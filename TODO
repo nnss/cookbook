@@ -4,6 +4,7 @@ http://railscasts.com/episodes/250-authentication-from-scratch
 
 Feature list:
 -> added details in user page (and also his/her recipes)
+    -> users in recipes links to all the recipes for that user
 -> will paginate impelemted
 -> recaptcha implemented
 
@@ -17,13 +18,17 @@ TODO:
     -> it would be great to have a flag and search only for recipes with
        the given ingredients (and avoid other recipes with extra ingredients)
  -> global search
- -> hide modifications links (edit/create/...) for anonymous users
+ -> hide modifications links (edit/create/...) for anonymous users (p. create helpers canEdit canCreate ktp)
  Recipe model modifcations:
  -> should be added a pending review or somethig to avoid being seen in
     the general index (if groups review is implemented)
+ -> Add a notes page, somethig like articles, with just:
+    -> title (string)
+    -> user (creator)
+    -> text (text)
+    -> tags (so as an asociated article in the recipe page figures something related within the tags)
 
  General Layout:
-  -> add last (1 or more) recipe(s) like the random recipe
-    -> This should be repeted in N columns by M rows (dinamic)
+   - BUG: index out of order (title is quite larg in some cases and too many tags in the general list)
 
-
+ 

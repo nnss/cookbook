@@ -5,12 +5,16 @@
 <div class="toLeft">
 <% @recipes.each do |rep| %>
   <div class="recIndex">
-    <div class="recTitle"><% if rep.title.length >  40 %><%= link_to truncate(rep.instructions, length: 42,separator: " "), rep  %>
+    <div class="recTitle"><% if rep.title.length >  35 %><%= link_to truncate(rep.instructions, length: 35,separator: " "), rep  %>
               <% else %>
                 <%= link_to rep.title, rep  %>
               <% end %></div>
     <div class="userName">by <%= rep.user.name %></div>
-    <div class="recTags">Categories: <%= raw rep.tag_list.first(4).map { |t| link_to t, tag_path(t) }.join(', ') %></div>
+    <div class="recTags">Categories: <%= rep.tag_list.first(3).join(", ").length %><% if rep.tag_list.first(3).join(", ").length > 25 %>
+         <%= raw rep.tag_list.first(2).map { |t| link_to t, tag_path(t) }.join(', ') %>
+       <% else %>
+         <%= raw rep.tag_list.first(3).map { |t| link_to t, tag_path(t) }.join(', ') %>
+       <% end %></div>
     <div class="recInstructions"><% if rep.instructions.length > 140 %>
              <%= truncate(rep.instructions, length: 140, separator: "/\s+|\n*|\s*\n*/")  %>
            <% else %>
