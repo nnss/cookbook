@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :require_user
-  helper_method :current_user
+  helper_method :current_user, :isAdmin?
 
   def permission_denied
     flash[:error] = "Sorry, permission denied."
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
       redirect_to log_in_path
       return false
     end
+  end
+
+  def isAdmin?(current_user)
+    Group.isAdmin?(current_user)
   end
 
   def store_location
@@ -48,9 +52,9 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
     #@current_user.group=
     #@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
 end

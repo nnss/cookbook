@@ -1,0 +1,18 @@
+<%= simple_form_for(@article) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %><br />
+    <%= f.label "Etiquetas" %><%= f.text_field :tag_list  %><br />
+    <% if isAdmin?  current_user %>
+    <%= f.association :user %><br />
+    <%= f.input :lang %><br />
+    <% end %>
+    <!-- %= text_area_tag :text, "", :class => "redactor", :rows => 40, :cols => 120 % -->
+    <%= f.input :text, input_html: { class: "redactor", rows: 40, cols: 120 } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

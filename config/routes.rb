@@ -1,4 +1,9 @@
 Cookbook::Application.routes.draw do
+  mount RedactorRails::Engine => '/redactor_rails'
+
+  #mount Mercury::Engine => '/'
+
+  resources :articles
   resources :terms
 
 

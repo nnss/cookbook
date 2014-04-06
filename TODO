@@ -22,13 +22,7 @@ TODO:
  Recipe model modifcations:
  -> should be added a pending review or somethig to avoid being seen in
     the general index (if groups review is implemented)
- -> Add a notes page, somethig like articles, with just:
-    -> title (string)
-    -> user (creator)
-    -> text (text)
-    -> tags (so as an asociated article in the recipe page figures something related within the tags)
 
  General Layout:
-   - BUG: index out of order (title is quite larg in some cases and too many tags in the general list)
 
  

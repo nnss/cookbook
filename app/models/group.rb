@@ -4,6 +4,7 @@ class Group < ActiveRecord::Base
 
   def self.isAdmin?(user)
     return true if Group.find_by_user_id(user.id).group.to_s == 'ADMIN'
+    false
   end
 
   def self.getGroup(user)

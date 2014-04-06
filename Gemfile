@@ -45,4 +45,10 @@ gem 'acts_as_commentable_with_threading'
 gem 'acts_as_votable'
 gem 'will_paginate', '~> 3.0'
 gem "recaptcha", :require => "recaptcha/rails"
+#em 'mercury-rails'
+#gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git', ref: 'a2b16bcdc9'
+#gem 'bootsy'
+gem 'redactor-rails'
+gem "carrierwave"
+gem "mini_magick"
 

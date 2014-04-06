@@ -1,0 +1,14 @@
+<!-- last article -->
+<div id="random_article">
+  <ul>
+  <%  myarts = Article.last(3) %>
+  <% if myarts.nil? %>
+  <li>No article to show</li>
+  <% else %>
+  <%  myarts.each do |art| %>
+  <li><%= link_to art.title,art %></li>
+  <% end %>
+  <% end %>
+  </ul>
+</div>
+
