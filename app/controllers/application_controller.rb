@@ -22,8 +22,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def isAdmin?(current_user)
-    Group.isAdmin?(current_user)
+  
+  def isAdmin?(user=current_user)
+    Group.isAdmin?(user)
   end
 
   def store_location

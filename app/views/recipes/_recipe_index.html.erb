@@ -20,7 +20,9 @@
            <% else %>
              <%= rep.instructions %>
            <% end %></div>
-    <div class="recLinks"><%= link_to 'Show', rep %><% if User.can_modify?(current_user) %> || <%= link_to 'Edit', edit_recipe_path(rep) %> || <%= link_to 'Destroy', rep, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></div>
+    <div class="recLinks"><%= link_to 'Show', rep %>
+<% if canEdit?(current_user) %>|| <%= link_to 'Edit', edit_recipe_path(rep) %><% end %>
+<% if canDelete?(current_user) %>|| <%= link_to 'Destroy', rep, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></div>
   </div>
 <% end %>
 </div>

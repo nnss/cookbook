@@ -21,6 +21,10 @@
 </p>
 
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %> |
+<% if canEdit?(current_user,@article.user) %>
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
+<% if canCreate?(current_user) %>
 <%= link_to 'New', new_article_path %>
+<% end %>

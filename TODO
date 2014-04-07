@@ -7,22 +7,37 @@ Feature list:
     -> users in recipes links to all the recipes for that user
 -> will paginate impelemted
 -> recaptcha implemented
-
+-> recipes has tags
+-> menu column hast random recipe and last 3 recipes
+-> articles has tags
 
 
 TODO:
- -> pending admin review on user creation (perhaps using workflow)
- -> Groups
-    -> probably the best is to modify the user model adding grup_id (user has_one group)
- -> advanced search by ingredient (or multiple ingredients)
-    -> it would be great to have a flag and search only for recipes with
+
+ MultiLang:
+   -> Add language/lang to the recipe
+   -> Comments and ingredients should be raw (as the "owner" of them are the recipes)
+   -> make a lang global var
+
+ Edit policies:
+   -> pending admin review on user creation (perhaps using workflow)
+     -> should be added a pending review or somethig to avoid being seen in
+        the general index (if groups review is implemented)
+   -> Groups
+     -> Default is null as a group
+     -> admin user should be able to add other users
+
+ Search:
+   -> advanced search by ingredient (or multiple ingredients)
+      -> it would be great to have a flag and search only for recipes with
        the given ingredients (and avoid other recipes with extra ingredients)
- -> global search
- -> hide modifications links (edit/create/...) for anonymous users (p. create helpers canEdit canCreate ktp)
- Recipe model modifcations:
- -> should be added a pending review or somethig to avoid being seen in
-    the general index (if groups review is implemented)
+   -> global search
+   Options:
+    * https://github.com/dougal/acts_as_indexed
+    * https://www.ruby-toolbox.com/categories/rails_search
+
 
  General Layout:
-
+ -> In a determined place should be a "related article" to the current recipe
+    -> linked by tags, if not, just any random
  

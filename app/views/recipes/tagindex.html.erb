@@ -4,4 +4,6 @@
 
 <br />
 
+<% if canCreate?(current_user) %>
 <%= link_to 'New Recipe', new_recipe_path %>
+<% end %>
