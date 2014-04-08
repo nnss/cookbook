@@ -5,6 +5,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    Recipe.where(:public => true).paginate(:page => params[:page]).order('id DESC')
+
     if params[:tag]
       @recipes = Recipe.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC')
     else
@@ -18,6 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def tagindex
+    Recipe.where(:public => true).paginate(:page => params[:page]).order('id DESC')
     if params[:tag]
       @recipes = Recipe.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC')
     else

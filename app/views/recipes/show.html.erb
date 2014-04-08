@@ -64,7 +64,7 @@
 <%= render :partial => 'comments/form', :locals => {:commentable => @recipe} %>
 
 
-<% if canEdit?(current_user) %>
+<% if canEdit?(current_user,@recipe.user) %>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <% end %>
 <%= link_to 'Back', recipes_path %>

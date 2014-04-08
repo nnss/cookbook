@@ -18,6 +18,11 @@ module ApplicationHelper
     true
   end
 
+  def canPublish?(user=current_user)
+    return true if isAdmin?(user)
+    false
+  end
+
   # admin and editors should be able to delete recipes
   def canDelete?(user=current_user,owner=nil)
     return false if user.nil?

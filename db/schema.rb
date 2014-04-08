@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140404080240) do
+ActiveRecord::Schema.define(:version => 20140407101601) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -82,9 +82,28 @@ ActiveRecord::Schema.define(:version => 20140404080240) do
     t.text     "instructions"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "lang"
+    t.boolean  "public"
   end
 
   add_index "recipes", ["user_id"], :name => "index_recipes_on_user_id"
+
+  create_table "redactor_assets", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "redactor_assets", ["assetable_type", "assetable_id"], :name => "idx_redactor_assetable"
+  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_redactor_assetable_type"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

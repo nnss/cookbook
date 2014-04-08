@@ -40,4 +40,8 @@ TODO:
  General Layout:
  -> In a determined place should be a "related article" to the current recipe
     -> linked by tags, if not, just any random
- 
+
+NOTES:
+a = eval load "./to_load.rb"
+ a.each{|x| Recipe.create(:title => x[:title], :user_id=>1, :yield=>x[:yield], :instructions=>x[:instructions], :ingredients_attributes=>x[:ingredients_attributes], :lang=>"en", :public=>true ) }
+a =  

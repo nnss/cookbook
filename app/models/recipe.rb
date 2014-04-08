@@ -1,8 +1,12 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :instructions, :title, :yield, :tag_list, :ingredient_ids, :ingredients_attributes, :user_id
+  attr_accessible :instructions, :title, :yield, :tag_list, :ingredient_ids, :ingredients_attributes, :user_id, :public, :lang
   acts_as_taggable
   #has_and_belongs_to_many :categories
+
+  self.per_page = 30
+
+  #Recipe.where(:public => true).paginate(:page => params[:page]).order('id DESC')
 
   acts_as_commentable
   #@recipe = Article.find(params[:id])

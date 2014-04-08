@@ -13,6 +13,9 @@
 
   <%= f.input :title %><br />
   <%= f.input :yield %><br />
+  <%= f.input :lang %><br />
+
+  <%= f.input :public if canPublish?(current_user) %>
 
   <div class="categories">
     <%= f.label :tag_list, "Categories (separated by commas)" %><br />

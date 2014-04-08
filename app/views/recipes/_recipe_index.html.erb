@@ -5,23 +5,24 @@
 <div class="toLeft">
 <% @recipes.each do |rep| %>
   <div class="recIndex">
-    <div class="recTitle"><% if rep.title.length >  35 %><%= link_to truncate(rep.instructions, length: 35,separator: " "), rep  %>
+    <div class="recTitle"><% if rep.title.length >  25 %>
+                 <%= link_to truncate(rep.title, length: 25), rep  %>
               <% else %>
                 <%= link_to rep.title, rep  %>
               <% end %></div>
     <div class="userName">by <%= rep.user.name %></div>
-    <div class="recTags">Categories: <%= rep.tag_list.first(3).join(", ").length %><% if rep.tag_list.first(3).join(", ").length > 25 %>
+    <div class="recTags">Categories: <% if rep.tag_list.first(3).join(", ").length > 25 %>
          <%= raw rep.tag_list.first(2).map { |t| link_to t, tag_path(t) }.join(', ') %>
        <% else %>
          <%= raw rep.tag_list.first(3).map { |t| link_to t, tag_path(t) }.join(', ') %>
        <% end %></div>
     <div class="recInstructions"><% if rep.instructions.length > 140 %>
-             <%= truncate(rep.instructions, length: 140, separator: "/\s+|\n*|\s*\n*/")  %>
+             <%= truncate(rep.instructions, length: 128, separator: "/\s+|\n*|\s*\n*/")  %>
            <% else %>
              <%= rep.instructions %>
            <% end %></div>
     <div class="recLinks"><%= link_to 'Show', rep %>
-<% if canEdit?(current_user) %>|| <%= link_to 'Edit', edit_recipe_path(rep) %><% end %>
+<% if canEdit?(current_user,rep.user) %>|| <%= link_to 'Edit', edit_recipe_path(rep) %><% end %>
 <% if canDelete?(current_user) %>|| <%= link_to 'Destroy', rep, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></div>
   </div>
 <% end %>
@@ -43,3 +44,6 @@ google_ad_height = 60;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 <br />
+
+<div class="digg_pagination"><%= will_paginate @recipes %></div>
+
