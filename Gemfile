@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+ruby '2.5.3'
+#gem 'rails', '3.2.22'
+gem 'rails', '>= 5.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,13 +13,13 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
@@ -39,11 +41,11 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'simple_form'
 gem 'awesome_nested_fields'
-gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'acts-as-taggable-on'
 gem 'cocoon'
 gem 'acts_as_commentable_with_threading'
 gem 'acts_as_votable'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate'
 gem "recaptcha", :require => "recaptcha/rails"
 #em 'mercury-rails'
 #gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git', ref: 'a2b16bcdc9'
